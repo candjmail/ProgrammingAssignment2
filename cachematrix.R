@@ -6,13 +6,20 @@
 ## its inverse.
 
 makeCacheMatrix <- function() {
-  ## orig and inv represent the original and inverted matrix
+  ## orig and inv hold the original and inverted matrix
       orig <- matrix()
       inv <- matrix()
+  ## define the function to return the cached original matrix
       getorig <- function() orig
+  ## define the function to return the cached inverted matrix
       getinv <- function() inv
+  ## define the function to cache the original matrix
+  ## orig is in the parent environment
       setorig <- function(x) orig <<- x
+  ## define the function to cache the inverted matrix
+  ## inv is in the parent environment
       setinv <- function(x) inv <<- x
+  ## return a list to the functions we just defined
       list(getorig = getorig, getinv = getinv, setorig = setorig,
            setinv = setinv)
 }
